@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NokiaAutoWordComplete_WPF"
         mc:Ignorable="d"
-        Title="MainWindow"  Height="600" Width="307">
+        Title="MainWindow"  Height="600" Width="307" KeyDown="Window_KeyDown">
 
 
     <Grid >
@@ -26,14 +26,14 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <TextBox Name="txt" Margin="10 10 10 0" FontSize="20" Grid.ColumnSpan="3" TextWrapping="Wrap"  />
+        <TextBox Name="txt" Margin="10 10 10 0" FontSize="20" Grid.ColumnSpan="3" TextWrapping="Wrap" TextChanged="Text_TextChanged" PreviewKeyDown="Text_PreviewKeyDown"/>
 
-        <ListView Name="List" Margin="10 0 10 10" FontSize="20" Grid.Row="1" Grid.ColumnSpan="3" ItemsSource="{Binding SuitableWords}" />
+        <ListView Name="AutoList" Margin="10 0 10 10" FontSize="20" Grid.Row="1" Grid.ColumnSpan="3"  ItemsSource="{Binding AutoComplete}" MouseDoubleClick="AutoList_MouseDoubleClick"/>
 
 
         <DockPanel Grid.Row="2">
 
-            <Button Height="25" DockPanel.Dock="Top" Margin="1 5 1 1" materialDesign:ButtonAssist.CornerRadius="15" >
+            <Button Height="25" DockPanel.Dock="Top" Margin="1 5 1 1" Click="BtnSoon_Click" materialDesign:ButtonAssist.CornerRadius="15" >
 
                 <materialDesign:PackIcon Kind="Minus"></materialDesign:PackIcon>
 
@@ -46,13 +46,13 @@
 
             </Button>
         </DockPanel>
-        <Button Grid.Row="2" Grid.Column="1" materialDesign:ButtonAssist.CornerRadius="10" Height="50" Width="60"   BorderThickness="5" BorderBrush="Black"/>
+        <Button Grid.Row="2" Grid.Column="1"  materialDesign:ButtonAssist.CornerRadius="10" Height="50" Width="60" Click="Btn_Add_Click"  BorderThickness="5" BorderBrush="Black"/>
         <DockPanel Grid.Row="2" Grid.Column="2">
-            <Button DockPanel.Dock="Top" materialDesign:ButtonAssist.CornerRadius="15" Margin="1 5 1 1" Height="25">
+            <Button DockPanel.Dock="Top" materialDesign:ButtonAssist.CornerRadius="15"  Margin="1 5 1 1" Height="25">
                 <materialDesign:PackIcon Kind= "Minus" />
             </Button>
 
-            <Button materialDesign:ButtonAssist.CornerRadius="15" Height="25" Margin="1 0 1 1">
+            <Button x:Name="Btn_HangUp" materialDesign:ButtonAssist.CornerRadius="15" Height="25" Margin="1 0 1 1" MouseDoubleClick="Btn_HangUp_MouseDoubleClick">
                 <materialDesign:PackIcon Kind= "TelephoneHangup" />
 
             </Button>
