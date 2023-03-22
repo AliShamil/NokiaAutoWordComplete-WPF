@@ -26,7 +26,7 @@ public partial class MainWindow : Window
 
     public ObservableCollection<string> AutoComplete { get; set; }
     public List<string> Words { get; set; }
-    Dictionary<int, string> NumPadDict { get; set; }
+    
 
     public MainWindow()
     {
@@ -158,7 +158,7 @@ public partial class MainWindow : Window
                 var jsonStr = JsonSerializer.Serialize(Words);
 
                 File.WriteAllText(@"..\..\..\WordsDictionary.json", jsonStr);
-
+              
             });
         }
     }

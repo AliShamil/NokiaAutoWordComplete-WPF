@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NokiaAutoWordComplete_WPF"
         mc:Ignorable="d"
-        Title="MainWindow"  Height="600" Width="307" KeyDown="Window_KeyDown">
+        Title="MainWindow"  Height="600" Width="307" KeyDown="Window_KeyDown" Background='#252526' Foreground="White" WindowStartupLocation="CenterScreen">
 
 
     <Grid >
@@ -28,7 +28,7 @@
 
         <TextBox Name="txt" Margin="10 10 10 0" FontSize="20" Grid.ColumnSpan="3" TextWrapping="Wrap" TextChanged="Text_TextChanged" PreviewKeyDown="Text_PreviewKeyDown"/>
 
-        <ListView Name="AutoList" Margin="10 0 10 10" FontSize="20" Grid.Row="1" Grid.ColumnSpan="3"  ItemsSource="{Binding AutoComplete}" MouseDoubleClick="AutoList_MouseDoubleClick"/>
+        <ListView Name="AutoList" Margin="10 0 10 10" FontSize="20" Grid.Row="1" Grid.ColumnSpan="3" Foreground="White" ItemsSource="{Binding AutoComplete}" MouseDoubleClick="AutoList_MouseDoubleClick"/>
 
 
         <DockPanel Grid.Row="2">
@@ -40,7 +40,7 @@
             </Button>
 
 
-            <Button Height="25" materialDesign:ButtonAssist.CornerRadius="15" Margin="1 0 1 1" >
+            <Button Height="25" materialDesign:ButtonAssist.CornerRadius="15" Click="BtnSoon_Click" Margin="1 0 1 1" >
 
                 <materialDesign:PackIcon Kind="TelephoneInTalk"></materialDesign:PackIcon>
 
@@ -48,7 +48,7 @@
         </DockPanel>
         <Button Grid.Row="2" Grid.Column="1"  materialDesign:ButtonAssist.CornerRadius="10" Height="50" Width="60" Click="Btn_Add_Click"  BorderThickness="5" BorderBrush="Black"/>
         <DockPanel Grid.Row="2" Grid.Column="2">
-            <Button DockPanel.Dock="Top" materialDesign:ButtonAssist.CornerRadius="15"  Margin="1 5 1 1" Height="25">
+            <Button DockPanel.Dock="Top" materialDesign:ButtonAssist.CornerRadius="15" Click="BtnSoon_Click"  Margin="1 5 1 1" Height="25">
                 <materialDesign:PackIcon Kind= "Minus" />
             </Button>
 
